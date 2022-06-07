@@ -4,6 +4,7 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const  Task  = require('./models/task');
+const userSchema = require('./models/user')
 
 connection();
 
@@ -35,6 +36,13 @@ app.get('/', function(req, res){
         });
     }
 )});
+
+app.get('/login', (req, res) => {
+    res.render('login.ejs');
+})
+app.get('/registro', (req, res) => {
+    res.render('registro.ejs');
+})
 
 // creating Tasks
 app.post('/create-task', function(req, res){
